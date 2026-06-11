@@ -237,28 +237,44 @@ export default function HomePage() {
 
       {/* ── LEADERSHIP ─────────────────────────────────────────────────── */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div {...fadeUp()} className="text-center mb-14">
-            <span className="text-forest-600 text-sm font-semibold uppercase tracking-wider">Leadership</span>
-            <h2 className="section-title mt-2">Meet Our Team</h2>
-          </motion.div>
+       <div className="flex flex-wrap justify-center gap-8">
+  {[
+    {
+      name: "Manoj Kumar Vatsa",
+      role: "Founder & Managing Director",
+      initials: "MV",
+      bio: "Visionary entrepreneur who founded Nandini Waste Management in 2018 with a mission to transform waste management across India. Under his leadership, the company has expanded to multiple municipal partnerships and continues to drive sustainable growth and innovation."
+    },
+    {
+      name: "Vijeta Vatsa",
+      role: "Director",
+      initials: "VV",
+      bio: "A key pillar of Nandini's leadership team, bringing strategic direction and operational excellence to the organization. Her dedication to community welfare and sustainable practices strengthens the company's long-term vision and impact."
+    }
+  ].map(({ name, role, initials, bio }, i) => (
+    <motion.div
+      key={name}
+      {...fadeUp(i * 0.15)}
+      className="glass-card p-8 text-center w-full max-w-md"
+    >
+      <div className="w-24 h-24 bg-hero rounded-2xl flex items-center justify-center text-white font-display font-bold text-3xl mx-auto mb-5">
+        {initials}
+      </div>
 
-          <div className="flex flex-wrap justify-center gap-8">
-            {[
-              { name: 'Manoj Kumar Vatsa', role: 'Founder & Managing Director', initials: 'MV' },
-              { name: 'Vijeta Vatsa',       role: 'Director',                    initials: 'VV' },
-              { name: 'Subodh Kumar',       role: 'Director',                    initials: 'SK' },
-            ].map(({ name, role, initials }, i) => (
-              <motion.div key={name} {...fadeUp(i * 0.15)} className="glass-card p-8 text-center w-64">
-                <div className="w-20 h-20 bg-hero rounded-2xl flex items-center justify-center text-white font-display font-bold text-2xl mx-auto mb-4">
-                  {initials}
-                </div>
-                <h3 className="font-display font-semibold text-forest-900 text-lg">{name}</h3>
-                <p className="text-forest-600 text-sm mt-1">{role}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+      <h3 className="font-display font-semibold text-forest-900 text-2xl">
+        {name}
+      </h3>
+
+      <p className="text-forest-600 font-medium mt-2">
+        {role}
+      </p>
+
+      <p className="text-gray-600 text-sm leading-7 mt-5">
+        {bio}
+      </p>
+    </motion.div>
+  ))}
+</div>
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────────────── */}
